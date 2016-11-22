@@ -24,7 +24,6 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     cssmin = require('gulp-cssmin'),
     imagemin = require('gulp-imagemin'),
-    livereload = require('gulp-livereload'),   // See Note 1 above
     config = require("config"),
     gDestDir = './build';
 
@@ -71,19 +70,6 @@ gulp.task('css-lint', ['sass'], function() {
 });
 
 
-/*
-SASS Linting
- */
-gulp.task('sass-lint', function () {
-    return gulp.src([
-        './src/sass/*.scss',
-        '!./src/sass//ui-grid.scss'
-    ]).pipe(sassLint())
-        .pipe(sassLint.format())
-        .pipe(sassLint.failOnError())
-});
-
-
 
 /*
  Images task:  copying images to the proper location
@@ -94,6 +80,17 @@ gulp.task('images', function () {
     del.sync(dest);
     return gulp.src(src, { base: './src/images' })
         .pipe(imagemin()).pipe(gulp.dest(dest));
+});
+
+/*
+ Copies angular templates to the build directory.
+ */
+gulp.task('views', function(){
+    return gulp.src([
+        './src/**/*.html',
+        './src/templates/*.html'
+    ], { base: './src' })
+        .pipe(gulp.dest(gDestDir));
 });
 
 

@@ -46,7 +46,7 @@ gulp.task('clean', function(done) {
 /*
  Builds the entire project.
  */
-gulp.task("build", ['fonts', 'images', 'lint', 'css-lint', 'browserify', 'views'], function(){
+gulp.task("build", ['images', 'lint', 'css-lint', 'browserify', 'views'], function(){
     // PF:  Need to return something
 });
 

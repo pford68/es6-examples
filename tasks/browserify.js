@@ -38,7 +38,7 @@ gulp.task("browserify", function(){
         debug: config.debug
     });
 
-    return b.transform(folderify).bundle()
+    return b.bundle()
         .pipe(source('./src/js/main.js'))
         .pipe(gulpif(config.debug === false, streamify(uglify())))
         .pipe(rename("main.js"))
