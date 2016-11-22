@@ -20,7 +20,6 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
     source = require('vinyl-source-stream'),
-    folderify = require('folderify'),
     config = require("config");
 
 /*
@@ -29,8 +28,6 @@ var gulp = require('gulp'),
  Fetches dependencies, and compresses the resulting JS bundle if not in debug mode.
  */
 gulp.task("browserify", function(){
-
-    folderify.validExtensions.push('.json');
 
     var b = browserify({
         entries: './main.js',

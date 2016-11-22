@@ -1,4 +1,4 @@
 /**
  *
  */
-require('./tutorial');
+require('./basics');
