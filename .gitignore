@@ -112,3 +112,4 @@ fabric.properties
 .gitignore
 .idea/
 es6-examples.iml
+build/
