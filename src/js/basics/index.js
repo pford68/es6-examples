@@ -16,3 +16,7 @@ var cred = {
 var x = new MyClass(cred);
 
 console.log(x.getName());
+console.log('sum', sum);
+console.log('variable', variable);
+
+console.log(2+9);

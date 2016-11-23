@@ -1,6 +1,6 @@
 {
   "port": 9000,
-  "files": ["./src/**/*.{html,htm,css,js}"],
+  "files": ["./build/**/*.{html,htm,css,js}"],
   "server": { "baseDir": "./build" },
   "browser": "google chrome"
 }
