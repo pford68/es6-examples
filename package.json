@@ -59,16 +59,6 @@
           ]
         }
       ]
-    ],
-    "plugin": [
-      "watchify",
-      {
-        "delay": 100,
-        "ignoreWatch": [
-          "**/node_modules/**"
-        ],
-        "poll": true
-      }
     ]
   }
 }

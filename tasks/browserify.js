@@ -32,6 +32,7 @@ var gulp = require('gulp'),
         packageCache: {}
     },
     b = browserify(opts);
+    b = watchify(b, {poll: true});
 
 
 
