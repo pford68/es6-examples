@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "lite-server -c config/bs-config.json"
+    "dev": "lite-server -c bs-config.json"
   },
   "repository": {
     "type": "git",
