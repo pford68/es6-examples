@@ -4,6 +4,8 @@
 'use strict';
 
 import {sum, square, variable, MyClass} from './import';
+import './strings';
+import './for-loop-closure';
 
 // 25
 console.log(square(5));

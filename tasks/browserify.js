@@ -13,20 +13,11 @@ var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     watchify = require('watchify'),
     config = require("config"),
-    opts = {
-        entries: './main.js',
-        basedir: './src/js',
-        debug: config.debug,
-        cache: {},
-        packageCache: {}
-    },
-    b = browserify(opts);
-    b = watchify(b, {poll: true});
-
+    bundler;
 
 
 function bundle(){
-    return b.bundle()
+    return bundler.bundle()
         .pipe(source('./src/js/main.js'))
         .pipe(gulpif(config.debug === false, streamify(uglify())))
         .pipe(rename("main.js"))
@@ -37,10 +28,20 @@ function bundle(){
         .pipe(gulp.dest('./build/js'));
 }
 
+var opts = {
+    entries: './main.js',
+    basedir: './src/js',
+    debug: config.debug,
+    cache: {},
+    packageCache: {}
+};
+bundler = watchify(browserify(opts), {poll: true})
+    .transform('babelify', { presets: 'es2015'})
+    .on('update', bundle);
+
 /*
  Browserify task.
 
  Fetches dependencies, and compresses the resulting JS bundle if not in debug mode.
  */
 gulp.task("browserify", bundle);
-b.on('update', bundle);

@@ -1,6 +1,7 @@
 /**
  *
  */
+'use strict';
 
 import { myUserProxy } from './data-binding';
 

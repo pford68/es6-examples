@@ -47,20 +47,10 @@
     "lite-server": "^2.2.2",
     "merge-stream": "^1.0.0",
     "require-dir": "^0.3.1",
+    "tsify": "^2.0.3",
+    "typescript": "^2.0.10",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.7.0"
-  },
-  "browserify": {
-    "transform": [
-      [
-        "babelify",
-        {
-          "presets": [
-            "latest"
-          ]
-        }
-      ]
-    ]
   }
 }
