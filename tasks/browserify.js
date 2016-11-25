@@ -36,7 +36,7 @@ var opts = {
     packageCache: {}
 };
 bundler = watchify(browserify(opts), {poll: true})
-    .transform('babelify', { presets: 'es2015'})
+    .transform('babelify', { presets: 'latest'})
     .on('update', bundle);
 
 /*

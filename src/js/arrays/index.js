@@ -1,5 +1,4 @@
 /**
  *
  */
-import destructuring from './destructuring';
-destructuring();
+import './destructuring';

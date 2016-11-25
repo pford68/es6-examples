@@ -3,13 +3,13 @@
  */
 'use strict';
 
-var sum = (a, b = 6) => (a + b);
+let sum = (a, b = 6) => (a + b);
 
-var square = (b) => {
+let square = (b) => {
     return b * b;
 };
 
-var variable = 8;
+let variable = 8;
 
 class MyClass {
     constructor(credentials) {

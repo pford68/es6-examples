@@ -6,16 +6,17 @@
 import {sum, square, variable, MyClass} from './import';
 import './strings';
 import './for-loop-closure';
+import './arrow';
 
 // 25
 console.log(square(5));
 
-var cred = {
+let cred = {
     name: 'Philip Ford',
     enrollmentNo: 11115078
 };
 
-var x = new MyClass(cred);
+let x = new MyClass(cred);
 
 console.log(x.getName());
 console.log('sum', sum);

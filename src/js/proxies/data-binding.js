@@ -4,7 +4,7 @@
 'use strict';
 
 // The target:  internal state for #inputname field
-var myUser = {
+let myUser = {
     id: 'inputname',
     name: ''
 };
@@ -16,7 +16,7 @@ function inputChange(myObject) {
         return;
     }
 
-    var input = document.getElementById(myObject.id);
+    let input = document.getElementById(myObject.id);
     input.addEventListener('onchange', function(e) {
         console.log('oninputchange', e);
         myObject.name = input.value;
@@ -27,7 +27,7 @@ inputChange(myUser);
 
 
 // proxy handler
-var inputHandler = {
+let inputHandler = {
     set: function(target, prop, newValue) {
         if (prop == 'name' && target.id) {
             // update object property
@@ -43,6 +43,6 @@ var inputHandler = {
 };
 
 // create proxy
-var myUserProxy = new Proxy(myUser, inputHandler);
+let myUserProxy = new Proxy(myUser, inputHandler);
 
 export { myUserProxy };
