@@ -7,6 +7,7 @@ import {sum, square, variable, MyClass} from './import';
 import './strings';
 import './for-loop-closure';
 import './arrow';
+import './closures';
 
 // 25
 console.log(square(5));
