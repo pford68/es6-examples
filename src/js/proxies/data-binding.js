@@ -17,8 +17,8 @@ function inputChange(myObject) {
     }
 
     let input = document.getElementById(myObject.id);
-    input.addEventListener('onchange', function(e) {
-        console.log('oninputchange', e);
+    input.addEventListener('change', function(e) {
+        console.log('user name change fired', e.target.value);
         myObject.name = input.value;
     });
 }
