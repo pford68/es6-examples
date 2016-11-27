@@ -1,5 +1,5 @@
 /**
- * Created by paford on 11/27/16.
+ *
  */
 var p1 = new Promise((resolve, reject) => {
     setTimeout(resolve, 1000, "one");
