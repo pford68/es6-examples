@@ -5,3 +5,5 @@ require('./basics');
 require('./proxies');
 require('./symbols');
 require('./arrays');
+require('./collections');
+require('./async');
