@@ -6,4 +6,4 @@ require('./proxies');
 require('./symbols');
 require('./arrays');
 require('./collections');
-require('./async');
+require('./promises');
