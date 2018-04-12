@@ -109,7 +109,7 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
-.gitignore
+
 .idea/
-es6-examples.iml
+*.iml
 build/
