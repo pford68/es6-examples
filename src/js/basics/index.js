@@ -8,7 +8,7 @@ import './strings';
 import './for-loop-closure';
 import './arrow';
 import './closures';
-import {restParameterTest, defaultParameterTest} from './parameters'
+import {restParameterTest, defaultParameterTest} from './parameters';
 
 // 25
 console.log(square(5));

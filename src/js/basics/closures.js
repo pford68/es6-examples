@@ -1,6 +1,8 @@
 /**
  *
  */
+'use strict';
+
 let a = (function(){
 
     var i = 3;
@@ -12,7 +14,7 @@ let a = (function(){
         setState: function(value){
             i = value;
         }
-    }
+    };
 })();
 
 let b = (function(){
@@ -26,7 +28,7 @@ let b = (function(){
         setState: function(value){
             i = value;
         }
-    }
+    };
 })();
 
 console.log('a.getState()', a.getState());

@@ -1,14 +1,16 @@
 /**
  *
  */
+'use strict';
+
 import {addText} from '../util';
 
-var promise = new Promise(function(resolve, reject) {
-    var request = new XMLHttpRequest();
+let promise = new Promise(function(resolve, reject) {
+    let request = new XMLHttpRequest();
 
     request.open('GET', 'http://api.icndb.com/jokes/random');
     request.onload = function() {
-        if (request.status == 200) {
+        if (request.status === 200) {
             resolve(request.response); // we got data here, so resolve the Promise
         } else {
             reject(Error(request.statusText)); // status is not 200 OK, so reject

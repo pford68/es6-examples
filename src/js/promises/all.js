@@ -1,6 +1,8 @@
 /**
  *
  */
+'use strict';
+
 import { addHtml } from '../util';
 
 function getMovie(title) {
@@ -17,7 +19,7 @@ function getMovie(title) {
         };
 
         request.onerror = function() {
-            reject(Error("Error fetching data.")); // error occurred, so reject the Promise
+            reject(Error('Error fetching data.')); // error occurred, so reject the Promise
         };
 
         request.send(); // send the request

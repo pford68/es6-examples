@@ -1,8 +1,10 @@
 /**
  *
  */
-var map = new WeakMap(); // create a weak map
-var myGreatObject = {
+'use strict';
+
+let map = new WeakMap(); // create a weak map
+let myGreatObject = {
     id: Symbol(),
     name: 'Philip'
 };
@@ -11,7 +13,9 @@ function useObj(obj){
     doSomethingWith(obj);
     var called = map.get(obj) || 0;
     called++; // called one more time
-    if(called > 10) report(obj, called); // Report called more than 10 times
+    if(called > 10) {
+        report(obj, called);  // Report called more than 10 times
+    }
     map.set(obj, called);
 }
 
