@@ -11,7 +11,7 @@ let myGreatObject = {
 
 function useObj(obj){
     doSomethingWith(obj);
-    var called = map.get(obj) || 0;
+    let called = map.get(obj) || 0;
     called++; // called one more time
     if(called > 10) {
         report(obj, called);  // Report called more than 10 times
@@ -20,7 +20,7 @@ function useObj(obj){
 }
 
 function doSomethingWith(obj){
-
+    console.log(`[doSomething] Doing something: ${obj}`);
 }
 
 function report(obj, num){

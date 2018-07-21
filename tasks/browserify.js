@@ -2,18 +2,19 @@
  * Tasks related to Browserify
  */
 
-var gulp = require('gulp'),
-    browserify = require("browserify"),
-    gulpif = require('gulp-if'),
-    streamify = require('gulp-streamify'),
-    uglify = require('gulp-uglify'),
-    rename = require('gulp-rename'),
-    source = require('vinyl-source-stream'),
-    buffer = require('vinyl-buffer'),
-    sourcemaps = require('gulp-sourcemaps'),
-    watchify = require('watchify'),
-    config = require("config"),
-    bundler;
+const gulp          = require('gulp'),
+      browserify    = require("browserify"),
+      gulpif        = require('gulp-if'),
+      streamify     = require('gulp-streamify'),
+      uglify        = require('gulp-uglify'),
+      rename        = require('gulp-rename'),
+      source        = require('vinyl-source-stream'),
+      buffer        = require('vinyl-buffer'),
+      sourcemaps    = require('gulp-sourcemaps'),
+      watchify      = require('watchify'),
+      config        = require("config");
+
+let bundler;
 
 
 function bundle(){
@@ -28,7 +29,7 @@ function bundle(){
         .pipe(gulp.dest('./build/js'));
 }
 
-var opts = {
+const opts = {
     entries: './main.js',
     basedir: './src/js',
     debug: config.debug,
@@ -36,7 +37,7 @@ var opts = {
     packageCache: {}
 };
 bundler = watchify(browserify(opts), {poll: true})
-    .transform('babelify', { presets: 'latest'})
+    .transform('babelify', { presets: ["@babel/preset-env"]})
     .on('update', bundle);
 
 /*

@@ -7,14 +7,11 @@
  *
  * To start the dev server:  gulp dev
  */
-var gulp = require('gulp'),
-    del = require('del'),                       // For deleting files and directories
-    merge = require("merge-stream"),            // Combines multiple streams into one.
-    requireDir = require("require-dir"),        // Imports an entire directory
-    config = require("config"),                 // Returns values from the config file(s) as a map.
-    gulpif = require("gulp-if"),
-    gDestDir = "./build",                       // The build directory
-    tasks = requireDir("./tasks");              // Gulp tasks for specific and for specific deployments (e.g., development)
+const gulp          = require('gulp'),
+      del           = require('del'),                // For deleting files and directories
+      requireDir    = require("require-dir"),        // Imports an entire directory
+      gDestDir      = "./build",                     // The build directory
+      tasks         = requireDir("./tasks");         // Gulp tasks for specific and for specific deployments (e.g., development)
 
 
 //======================================================================== Tasks
@@ -22,7 +19,7 @@ var gulp = require('gulp'),
 /*
  Clean task:  deletes the build directory
  */
-gulp.task('clean', function(done) {
+gulp.task('clean', done => {
     console.log("Cleaning " + gDestDir + "...");
     del(gDestDir, function(){
         console.log("Deleted " + gDestDir + ".");
@@ -35,6 +32,6 @@ gulp.task('clean', function(done) {
 /*
  Builds the entire project.
  */
-gulp.task("build", ['images', 'lint', 'css-lint', 'browserify', 'views'], function(){
+gulp.task("build", ['images', 'lint', 'css-lint', 'browserify', 'views'], () => {
     // PF:  Need to return something
 });

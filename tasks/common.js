@@ -2,19 +2,16 @@
  * Common Gulp tasks used at different development phases
  */
 
-var gulp = require('gulp'),
-    fs = require('fs'),
-    jshint = require('gulp-jshint'),
-    csslint = require('gulp-csslint'),
-    merge = require("merge-stream"),            // Combines multiple streams into one.
-    del = require('del'),
-    sass = require('gulp-sass'),
-    gulpif = require('gulp-if'),
-    rename = require('gulp-rename'),
-    cssmin = require('gulp-cssmin'),
-    imagemin = require('gulp-imagemin'),
-    config = require("config"),
-    gDestDir = './build';
+const gulp      = require('gulp'),
+      jshint    = require('gulp-jshint'),
+      csslint   = require('gulp-csslint'),
+      del       = require('del'),
+      sass      = require('gulp-sass'),
+      gulpif    = require('gulp-if'),
+      cssmin    = require('gulp-cssmin'),
+      imagemin  = require('gulp-imagemin'),
+      config    = require("config"),
+      gDestDir  = './build';
 
 
 /*
@@ -22,7 +19,7 @@ var gulp = require('gulp'),
 
  Compresses the resulting CSS file if not in debug mode
  */
-gulp.task('sass', function () {
+gulp.task('sass', () => {
     // Omitting "sass" in src path below created an unwanted "sass" sub-directory.
     var dest = './build/css',
         src = './src/sass/main.scss';
@@ -63,7 +60,7 @@ gulp.task('css-lint', ['sass'], function() {
 /*
  Images task:  copying images to the proper location
  */
-gulp.task('images', function () {
+gulp.task('images', () => {
     var dest = './build/images',
         src = './src/images/**/*';
     del.sync(dest);
@@ -74,7 +71,7 @@ gulp.task('images', function () {
 /*
  Copies angular templates to the build directory.
  */
-gulp.task('views', function(){
+gulp.task('views', () => {
     return gulp.src([
         './src/**/*.html',
         './src/templates/*.html'
