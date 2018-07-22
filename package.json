@@ -24,7 +24,6 @@
     "@babel/core": "^7.0.0-beta.54",
     "@babel/plugin-proposal-decorators": "^7.0.0-beta.54",
     "@babel/preset-env": "^7.0.0-beta.54",
-    "babel-preset-stage-2": "^6.24.1",
     "babelify": "^9.0.0",
     "browserify": "^16.2.2",
     "config": "^1.30.0",
