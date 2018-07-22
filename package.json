@@ -22,9 +22,8 @@
   "homepage": "https://github.com/pford68/es6-examples#readme",
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.54",
+    "@babel/plugin-proposal-decorators": "^7.0.0-beta.54",
     "@babel/preset-env": "^7.0.0-beta.54",
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
     "babelify": "^9.0.0",
     "browserify": "^16.2.2",
     "config": "^1.30.0",
@@ -32,7 +31,6 @@
     "del": "^3.0.0",
     "folderify": "^1.2.1",
     "gulp": "^3.9.1",
-    "gulp-babel": "^7.0.1",
     "gulp-csslint": "^1.0.1",
     "gulp-cssmin": "^0.2.0",
     "gulp-if": "^2.0.2",

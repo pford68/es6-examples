@@ -3,8 +3,6 @@
  */
 'use strict';
 
-//alert('OK');
-
 function log(target, name, descriptor) {
     const original = descriptor.value;
     if (typeof original === 'function') {
@@ -25,9 +23,7 @@ function log(target, name, descriptor) {
 
 
 class Example {
-    /* jshint ignore:start */
     @log
-    /* jshint ignore:end */
     sum(a, b) {
         return a + b;
     }
