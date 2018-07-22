@@ -10,7 +10,7 @@ const gulp          = require('gulp'),
       rename        = require('gulp-rename'),
       source        = require('vinyl-source-stream'),
       buffer        = require('vinyl-buffer'),
-      sourcemaps    = require('gulp-sourcemaps'),
+      sourceMaps    = require('gulp-sourcemaps'),
       watchify      = require('watchify'),
       config        = require("config");
 
@@ -23,9 +23,9 @@ function bundle(){
         .pipe(gulpif(config.debug === false, streamify(uglify())))
         .pipe(rename("main.js"))
         .pipe(buffer())
-        .pipe(sourcemaps.init({loadMaps: true})) // loads map from browserify file
+        .pipe(sourceMaps.init({loadMaps: true})) // loads map from browserify file
         // Add transformation tasks to the pipeline here.
-        .pipe(sourcemaps.write('./')) // writes .map file
+        .pipe(sourceMaps.write('./')) // writes .map file
         .pipe(gulp.dest('./build/js'));
 }
 

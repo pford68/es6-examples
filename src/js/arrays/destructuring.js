@@ -4,8 +4,8 @@
 'use strict';
 
 let myArray = ['a', 'b', 'c'];
-let [one, two, three] = myArray;
+const [one, two, three] = myArray;
 
 console.log('Destructuring...');
 console.log(myArray);
-console.log(one, two. three);
+console.log(one, two, three);
