@@ -37,8 +37,12 @@ const opts = {
     packageCache: {}
 };
 bundler = watchify(browserify(opts), {poll: true})
-    .transform('babelify', { presets: ["@babel/preset-env"]})
-    .on('update', bundle);
+    .transform('babelify')
+    .on('update', bundle)
+    .on('error', e => {
+        console.log(e.message);
+        bundler.emit('end');
+    });
 
 /*
  Browserify task.
