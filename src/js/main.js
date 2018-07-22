@@ -7,3 +7,4 @@ require('./symbols');
 require('./arrays');
 require('./collections');
 require('./promises');
+require('./next');
