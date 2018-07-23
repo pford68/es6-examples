@@ -21,18 +21,9 @@ let p4 = new Promise((resolve, reject) => {
 });
 
 
-let promises = [p1, p2, p3, p4];
 
-
-Promise.all(promises).then(values => {
+Promise.all([p1, p2, p3, p4]).then(values => {
     console.log(values);
 }, reason => {
-    console.log(reason);
-});
-
-
-Promise.all(promises).then(values => {
-    console.log(values);
-}).catch(reason => {
     console.log(reason);
 });
