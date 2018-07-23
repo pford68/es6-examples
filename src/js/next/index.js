@@ -1,4 +1,4 @@
 /**
  *
  */
-import './decorators';
+import './decorator-test';

@@ -1,5 +1,5 @@
 /**
- *
+ *  Decorators for use in the examples
  */
 'use strict';
 
@@ -21,15 +21,4 @@ function log(target, name, descriptor) {
     return descriptor;
 }
 
-
-class Example {
-    @log
-    sum(a, b) {
-        return a + b;
-    }
-}
-
-const e = new Example();
-e.sum(1, 2);
-// Arguments: 1,2
-// Result: 3
+export { log };
