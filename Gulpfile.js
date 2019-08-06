@@ -7,11 +7,11 @@
  *
  * To start the dev server:  gulp dev
  */
-const gulp          = require('gulp'),
+const { src, task, series }  = require('gulp'),
       del           = require('del'),                // For deleting files and directories
       requireDir    = require("require-dir"),        // Imports an entire directory
       gDestDir      = "./build",                     // The build directory
-      tasks         = requireDir("./tasks");         // Gulp tasks for specific and for specific deployments (e.g., development)
+      tasks         = requireDir("./tasks");     // Gulp tasks for specific and for specific deployments (e.g., development)
 
 
 //======================================================================== Tasks
@@ -19,9 +19,9 @@ const gulp          = require('gulp'),
 /*
  Clean task:  deletes the build directory
  */
-gulp.task('clean', done => {
+task('clean', done => {
     console.log("Cleaning " + gDestDir + "...");
-    del(gDestDir, function(){
+    del(gDestDir, () => {
         console.log("Deleted " + gDestDir + ".");
         done();
     });
@@ -32,6 +32,4 @@ gulp.task('clean', done => {
 /*
  Builds the entire project.
  */
-gulp.task("build", ['images', 'lint', 'css-lint', 'browserify', 'views'], () => {
-    // PF:  Need to return something
-});
+task("build", series('images', 'lint', 'browserify', 'views'));

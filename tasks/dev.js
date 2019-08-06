@@ -9,7 +9,7 @@
  *       See https://www.npmjs.org/package/gulp-livereload
  */
 
-const gulp  = require('gulp'),
+const { task }  = require('gulp'),
       karma = require('karma'),
       path  = require('path');
 
@@ -20,7 +20,7 @@ require("./browserify");
 /**
  * Run test once and exit
  */
-gulp.task('test', done => {
+task('test', done => {
     new karma.Server({
         configFile: path.resolve('./karma.conf.js'),  // karma was not finding ../karma.conf.js
         singleRun: true

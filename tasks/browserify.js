@@ -2,7 +2,7 @@
  * Tasks related to Browserify
  */
 
-const gulp          = require('gulp'),
+const { task, dest }      = require('gulp'),
       browserify    = require("browserify"),
       gulpif        = require('gulp-if'),
       streamify     = require('gulp-streamify'),
@@ -26,17 +26,18 @@ function bundle(){
         .pipe(sourceMaps.init({loadMaps: true})) // loads map from browserify file
         // Add transformation tasks to the pipeline here.
         .pipe(sourceMaps.write('./')) // writes .map file
-        .pipe(gulp.dest('./build/js'));
+        .pipe(dest('./build/js'));
 }
 
 const opts = {
     entries: './main.js',
     basedir: './src/js',
-    debug: config.debug,
+    debug: true,
     cache: {},
-    packageCache: {}
+    packageCache: {},
+    plugin: [watchify]
 };
-bundler = watchify(browserify(opts), {poll: true})
+bundler = browserify(opts)
     .transform('babelify')
     .on('update', bundle)
     .on('error', e => {
@@ -49,4 +50,4 @@ bundler = watchify(browserify(opts), {poll: true})
 
  Fetches dependencies, and compresses the resulting JS bundle if not in debug mode.
  */
-gulp.task("browserify", bundle);
+task("browserify", bundle);

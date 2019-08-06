@@ -3,12 +3,12 @@
  */
 'use strict';
 
-var mySet = new Set();
+let mySet = new Set();
 
 mySet.add(1);
 mySet.add(5);
 mySet.add('some text');
-var o = {a: 1, b: 2};
+let o = {a: 1, b: 2};
 mySet.add(o);
 
 mySet.add({a: 1, b: 2}); // o is referencing a different object so this is okay

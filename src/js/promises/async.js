@@ -1,9 +1,7 @@
 /**
  *
  */
-'use strict';
-
-import "@babel/polyfill";
+import '@babel/polyfill';
 
 function resolveAfter2Seconds() {
     return new Promise(resolve => {
@@ -21,3 +19,15 @@ async function asyncCall() {
 }
 
 asyncCall();
+
+
+
+async function fetchTopFive(sub) {
+    const URL = `https://www.reddit.com/r/${sub}/top/.json?limit=5`;
+    const fetchResult = fetch(URL);
+    const response = await fetchResult;
+    const jsonData = await response.json();
+    console.log(jsonData);
+}
+
+fetchTopFive('python');

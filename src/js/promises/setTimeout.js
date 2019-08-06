@@ -1,15 +1,14 @@
 /**
  *
  */
-'use strict';
-var promiseCount = 0;
+let promiseCount = 0;
 
 function getLog(){
     let log = document.getElementById('log');
     if (log) {
         return log;
     } else {
-        var node = document.createElement('div');
+        let node = document.createElement('div');
         node.id = 'log';
         // Using document.body.innerHTML += newHTML killed other HTML written to the page.
         document.body.insertBefore(node, document.body.lastChild);

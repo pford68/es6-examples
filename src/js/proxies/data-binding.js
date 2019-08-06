@@ -1,8 +1,6 @@
 /**
  *
  */
-'use strict';
-
 // The target:  internal state for #inputname field
 let myUser = {
     id: 'inputname',

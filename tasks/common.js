@@ -2,8 +2,8 @@
  * Common Gulp tasks used at different development phases
  */
 
-const gulp      = require('gulp'),
-      jshint    = require('gulp-jshint'),
+const { task, src, series, dest}   = require('gulp'),
+      eslint    = require('gulp-eslint'),
       csslint   = require('gulp-csslint'),
       del       = require('del'),
       sass      = require('gulp-sass'),
@@ -19,15 +19,15 @@ const gulp      = require('gulp'),
 
  Compresses the resulting CSS file if not in debug mode
  */
-gulp.task('sass', () => {
+task('sass', () => {
     // Omitting "sass" in src path below created an unwanted "sass" sub-directory.
-    var dest = './build/css',
-        src = './src/sass/main.scss';
+    let out = './build/css',
+        main = './src/sass/main.scss';
     del.sync(dest);
-    return gulp.src(src)
+    return src(main)
         .pipe(sass())
         .pipe(gulpif(config.debug === false, cssmin()))
-        .pipe(gulp.dest(dest));
+        .pipe(dest(out));
 });
 
 
@@ -35,12 +35,12 @@ gulp.task('sass', () => {
 /*
  Linting
  */
-gulp.task('lint', function() {
-    return gulp.src('./src/**/*.js')
-        .pipe(jshint())
+task('lint', function() {
+    return src('./src/**/*.js')
+        .pipe(eslint())
         // You can look into pretty reporters as well, but that's another story
-        .pipe(jshint.reporter('jshint-stylish'))
-        .pipe(jshint.reporter('fail'));
+        .pipe(eslint.format())
+        .pipe(eslint.failAfterError());
 });
 
 
@@ -48,35 +48,35 @@ gulp.task('lint', function() {
  CSS Linting
  */
 csslint.addFormatter('csslint-stylish');
-gulp.task('css-lint', ['sass'], function() {
-    return gulp.src('./build/**/*.css')
+task('css-lint', series('sass', () => {
+    return src('./build/**/*.css')
         .pipe(csslint('.csslintrc'))
         // You can look into pretty reporters as well, but that's another story
         .pipe(csslint.formatter('stylish'));
-});
+}));
 
 
 
 /*
  Images task:  copying images to the proper location
  */
-gulp.task('images', () => {
-    var dest = './build/images',
-        src = './src/images/**/*';
-    del.sync(dest);
-    return gulp.src(src, { base: './src/images' })
-        .pipe(imagemin()).pipe(gulp.dest(dest));
+task('images', () => {
+    let out = './build/images',
+        main = './src/images/**/*';
+    del.sync(out);
+    return src(main, { base: './src/images' })
+        .pipe(imagemin()).pipe(dest(out));
 });
 
 /*
  Copies angular templates to the build directory.
  */
-gulp.task('views', () => {
-    return gulp.src([
+task('views', () => {
+    return src([
         './src/**/*.html',
         './src/templates/*.html'
     ], { base: './src' })
-        .pipe(gulp.dest(gDestDir));
+        .pipe(dest(gDestDir));
 });
 
 

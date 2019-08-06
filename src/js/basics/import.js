@@ -1,8 +1,6 @@
 /**
  *
  */
-'use strict';
-
 let sum = (a, b = 6) => (a + b);
 
 let square = (b) => {

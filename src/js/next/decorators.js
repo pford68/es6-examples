@@ -1,8 +1,6 @@
 /**
  *  Decorators for use in the examples
  */
-'use strict';
-
 function log(target, name, descriptor) {
     const original = descriptor.value;
     if (typeof original === 'function') {

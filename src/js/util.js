@@ -1,8 +1,6 @@
 /**
  * Just utilities for this demo
  */
-'use strict';
-
 function addText(text){
     var node = document.createTextNode(text);
     document.body.insertBefore(node, document.body.lastChild);
